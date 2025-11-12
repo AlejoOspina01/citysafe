@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Home, FileText, Download } from 'lucide-react';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Home, FileText, Download } from "lucide-react";
+import { motion } from "framer-motion";
 
 /**
  * Admin Sidebar Component
@@ -15,29 +15,29 @@ export function AdminSidebar() {
 
   const navItems = [
     {
-      label: 'Dashboard',
-      href: '/admin',
+      label: "Panel de Control",
+      href: "/admin",
       icon: Home,
     },
     {
-      label: 'Incident Reports',
-      href: '/admin/reports',
+      label: "Reportes de Incidentes",
+      href: "/admin/reports",
       icon: FileText,
     },
     {
-      label: 'Download Reports',
-      href: '/admin/download',
+      label: "Descargar Reportes",
+      href: "/admin/download",
       icon: Download,
     },
   ];
 
   return (
-    <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:flex-col md:w-64 bg-gray-900 text-white">
+    <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:flex-col md:w-64 bg-gray-900 text-white mt-15">
       <div className="flex items-center gap-2 p-6 border-b border-gray-800">
         <div className="h-8 w-8 rounded bg-blue-600 flex items-center justify-center font-bold">
           CS
         </div>
-        <span className="font-bold text-lg">CitySafe Admin</span>
+        <span className="font-bold text-lg">Panel Administrativo CitySafe</span>
       </div>
 
       <nav className="flex-1 overflow-y-auto p-4 space-y-2">
@@ -46,18 +46,14 @@ export function AdminSidebar() {
           const isActive = pathname === item.href;
 
           return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="relative"
-            >
+            <Link key={item.href} href={item.href} className="relative">
               <motion.div
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`}
               >
                 <Icon className="h-5 w-5" />

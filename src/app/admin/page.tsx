@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { AdminSidebar } from '@/components/admin-sidebar';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { AdminSidebar } from "@/components/admin-sidebar";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import {
   BarChart,
   Bar,
@@ -18,10 +18,15 @@ import {
   PieChart,
   Pie,
   Cell,
-} from 'recharts';
-import { AlertCircle, CheckCircle, Clock } from 'lucide-react';
-import { mockIncidents, incidentStats, trendingData, incidentTypesData } from '@/data/mock-incidents';
-import Link from 'next/link';
+} from "recharts";
+import { AlertCircle, CheckCircle, Clock } from "lucide-react";
+import {
+  mockIncidents,
+  incidentStats,
+  trendingData,
+  incidentTypesData,
+} from "@/data/mock-incidents";
+import Link from "next/link";
 
 /**
  * Admin Dashboard (/admin)
@@ -29,7 +34,7 @@ import Link from 'next/link';
  * Shows key metrics, trending data, and recent incidents
  */
 export default function AdminDashboard() {
-  const COLORS = ['#2563eb', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  const COLORS = ["#2563eb", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,11 +65,15 @@ export default function AdminDashboard() {
         <header className="sticky top-0 z-40 border-b border-gray-200 bg-white">
           <div className="flex items-center justify-between px-6 py-4 md:px-8">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-              <p className="mt-1 text-sm text-gray-600">Welcome back to CitySafe Admin</p>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Panel de Control
+              </h1>
+              <p className="mt-1 text-sm text-gray-600">
+                Bienvenido de vuelta al Panel de Administración CitySafe
+              </p>
             </div>
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-              Generate Report
+              Generar Reporte
             </Button>
           </div>
         </header>
@@ -83,7 +92,9 @@ export default function AdminDashboard() {
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Total Incidents</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Total de Incidentes
+                    </p>
                     <p className="mt-2 text-3xl font-bold text-gray-900">
                       {incidentStats.total}
                     </p>
@@ -100,7 +111,9 @@ export default function AdminDashboard() {
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Resolved</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Resueltos
+                    </p>
                     <p className="mt-2 text-3xl font-bold text-green-600">
                       {incidentStats.resolved}
                     </p>
@@ -117,7 +130,9 @@ export default function AdminDashboard() {
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Pending</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      Pendientes
+                    </p>
                     <p className="mt-2 text-3xl font-bold text-orange-600">
                       {incidentStats.pending}
                     </p>
@@ -134,7 +149,9 @@ export default function AdminDashboard() {
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600">Investigating</p>
+                    <p className="text-sm font-medium text-gray-600">
+                      En Investigación
+                    </p>
                     <p className="mt-2 text-3xl font-bold text-purple-600">
                       {incidentStats.investigating}
                     </p>
@@ -159,18 +176,22 @@ export default function AdminDashboard() {
             <motion.div variants={itemVariants}>
               <Card className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Incident Trends
+                  Tendencia de Incidentes
                 </h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={trendingData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="month" stroke="#6b7280" style={{ fontSize: '12px' }} />
-                    <YAxis stroke="#6b7280" style={{ fontSize: '12px' }} />
+                    <XAxis
+                      dataKey="month"
+                      stroke="#6b7280"
+                      style={{ fontSize: "12px" }}
+                    />
+                    <YAxis stroke="#6b7280" style={{ fontSize: "12px" }} />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: '#ffffff',
-                        border: '1px solid #e5e7eb',
-                        borderRadius: '8px',
+                        backgroundColor: "#ffffff",
+                        border: "1px solid #e5e7eb",
+                        borderRadius: "8px",
                       }}
                     />
                     <Line
@@ -178,7 +199,7 @@ export default function AdminDashboard() {
                       dataKey="incidents"
                       stroke="#2563eb"
                       strokeWidth={2}
-                      dot={{ fill: '#2563eb' }}
+                      dot={{ fill: "#2563eb" }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -189,7 +210,7 @@ export default function AdminDashboard() {
             <motion.div variants={itemVariants}>
               <Card className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Incidents by Type
+                  Incidentes por Tipo
                 </h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
@@ -204,7 +225,10 @@ export default function AdminDashboard() {
                       dataKey="count"
                     >
                       {incidentTypesData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
                       ))}
                     </Pie>
                     <Tooltip />
@@ -223,13 +247,15 @@ export default function AdminDashboard() {
           >
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900">Recent Incidents</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Incidentes Recientes
+                </h3>
                 <Link href="/admin/reports">
                   <Button
                     variant="outline"
                     className="border-gray-300 text-gray-600 hover:text-gray-900"
                   >
-                    View All
+                    Ver Todos
                   </Button>
                 </Link>
               </div>
@@ -238,13 +264,21 @@ export default function AdminDashboard() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-gray-200">
-                      <th className="px-4 py-3 text-left font-medium text-gray-700">ID</th>
-                      <th className="px-4 py-3 text-left font-medium text-gray-700">Type</th>
                       <th className="px-4 py-3 text-left font-medium text-gray-700">
-                        Location
+                        ID
                       </th>
-                      <th className="px-4 py-3 text-left font-medium text-gray-700">Date</th>
-                      <th className="px-4 py-3 text-left font-medium text-gray-700">Status</th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700">
+                        Tipo
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700">
+                        Ubicación
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700">
+                        Fecha
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700">
+                        Estado
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -253,24 +287,33 @@ export default function AdminDashboard() {
                         key={incident.id}
                         className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
                       >
-                        <td className="px-4 py-3 font-mono text-gray-900">{incident.id}</td>
-                        <td className="px-4 py-3 text-gray-700">{incident.type}</td>
+                        <td className="px-4 py-3 font-mono text-gray-900">
+                          {incident.id}
+                        </td>
+                        <td className="px-4 py-3 text-gray-700">
+                          {incident.type}
+                        </td>
                         <td className="px-4 py-3 text-gray-600 truncate max-w-xs">
                           {incident.location}
                         </td>
-                        <td className="px-4 py-3 text-gray-600">{incident.date}</td>
+                        <td className="px-4 py-3 text-gray-600">
+                          {incident.date}
+                        </td>
                         <td className="px-4 py-3">
                           <span
                             className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                              incident.status === 'resolved'
-                                ? 'bg-green-100 text-green-800'
-                                : incident.status === 'pending'
-                                  ? 'bg-orange-100 text-orange-800'
-                                  : 'bg-blue-100 text-blue-800'
+                              incident.status === "resolved"
+                                ? "bg-green-100 text-green-800"
+                                : incident.status === "pending"
+                                ? "bg-orange-100 text-orange-800"
+                                : "bg-blue-100 text-blue-800"
                             }`}
                           >
-                            {incident.status.charAt(0).toUpperCase() +
-                              incident.status.slice(1)}
+                            {incident.status === "resolved"
+                              ? "Resuelto"
+                              : incident.status === "pending"
+                              ? "Pendiente"
+                              : "En Investigación"}
                           </span>
                         </td>
                       </tr>
@@ -291,16 +334,19 @@ export default function AdminDashboard() {
           >
             <Card className="p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Incident Locations Map
+                Mapa de Ubicaciones de Incidentes
               </h3>
               <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
                 <div className="text-center text-gray-600">
-                  <p className="font-medium text-lg">🗺️ Simulated Map View</p>
+                  <p className="font-medium text-lg">
+                    🗺️ Vista de Mapa Simulado
+                  </p>
                   <p className="text-sm mt-2">
-                    Incident locations would be displayed on an interactive map
+                    Las ubicaciones de incidentes se mostrarían en un mapa
+                    interactivo
                   </p>
                   <p className="text-xs mt-4 text-gray-500">
-                    In production, use Leaflet, Mapbox, or Google Maps API
+                    En producción, usa Leaflet, Mapbox o Google Maps API
                   </p>
                 </div>
               </div>

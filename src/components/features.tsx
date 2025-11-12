@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Bell, Users, FileText } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Bell, Users, FileText } from "lucide-react";
+import { motion } from "framer-motion";
 
 /**
  * Features Component
@@ -16,24 +16,24 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    id: 'real-time',
-    title: 'Real-Time Alerts',
+    id: "real-time",
+    title: "Alertas en Tiempo Real",
     description:
-      'Get instant notifications about incidents in your neighborhood. Stay informed and keep your community safe.',
+      "Recibe notificaciones instantáneas sobre incidentes en tu barrio. Mantente informado y ayuda a tu comunidad a mantenerse segura.",
     icon: <Bell className="h-8 w-8 text-blue-600" />,
   },
   {
-    id: 'community',
-    title: 'Community Engagement',
+    id: "community",
+    title: "Participación Comunitaria",
     description:
-      'Connect with your neighbors and local authorities. Report issues and track resolutions together.',
+      "Conecta con tus vecinos y autoridades locales. Reporta problemas y rastrea soluciones juntos.",
     icon: <Users className="h-8 w-8 text-blue-600" />,
   },
   {
-    id: 'reporting',
-    title: 'Easy Reporting',
+    id: "reporting",
+    title: "Reportes Fáciles",
     description:
-      'Simple and intuitive interface to report incidents. Just a few clicks to help keep our city safer.',
+      "Interfaz simple e intuitiva para reportar incidentes. Solo unos pocos clics para ayudar a que nuestra ciudad sea más segura.",
     icon: <FileText className="h-8 w-8 text-blue-600" />,
   },
 ];
@@ -65,10 +65,10 @@ export function Features() {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            Key Features
+            Características Principales
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Everything you need to make our community safer
+            Todo lo que necesitas para hacer nuestra comunidad más segura
           </p>
         </div>
 

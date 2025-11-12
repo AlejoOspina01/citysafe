@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card } from '@/components/ui/card';
-import { motion } from 'framer-motion';
-import { Mail, Lock, UserCheck } from 'lucide-react';
-import Link from 'next/link';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Mail, Lock, UserCheck } from "lucide-react";
+import Link from "next/link";
 
 /**
  * Login Page (/login)
@@ -15,9 +15,11 @@ import Link from 'next/link';
  * Supports password login, email link, and guest access
  */
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginMethod, setLoginMethod] = useState<'password' | 'email-link' | 'guest' | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMethod, setLoginMethod] = useState<
+    "password" | "email-link" | "guest" | null
+  >(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -25,7 +27,7 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     // TODO: Connect to backend authentication API
-    console.log('Password login:', { email, password });
+    console.log("Password login:", { email, password });
     setTimeout(() => {
       setIsLoading(false);
       setIsSuccess(true);
@@ -36,7 +38,7 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     // TODO: Connect to backend API for email link
-    console.log('Email link login:', { email });
+    console.log("Email link login:", { email });
     setTimeout(() => {
       setIsLoading(false);
       setIsSuccess(true);
@@ -46,7 +48,7 @@ export default function Login() {
   const handleGuestAccess = () => {
     setIsLoading(true);
     // TODO: Create guest session
-    console.log('Guest access');
+    console.log("Guest access");
     setTimeout(() => {
       setIsLoading(false);
       setIsSuccess(true);
@@ -59,7 +61,7 @@ export default function Login() {
         <section className="bg-linear-to-r from-blue-600 to-blue-700 py-12 md:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold text-white md:text-4xl">
-              Welcome to CitySafe Admin
+              Bienvenido al Panel de Administración CitySafe
             </h1>
           </div>
         </section>
@@ -79,14 +81,14 @@ export default function Login() {
                   </div>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Logged In Successfully!
+                  ¡Ingreso Exitoso!
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Redirecting to admin dashboard...
+                  Redirigiendo al panel de control...
                 </p>
                 <Link href="/admin">
                   <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                    Go to Dashboard
+                    Ir al Panel de Control
                   </Button>
                 </Link>
               </Card>
@@ -108,7 +110,7 @@ export default function Login() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Admin Login
+            Ingreso de Administrador
           </motion.h1>
           <motion.p
             className="mt-4 text-lg text-blue-100"
@@ -116,7 +118,8 @@ export default function Login() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Access the CitySafe administration panel to manage incident reports.
+            Accede al panel de administración de CitySafe para gestionar
+            reportes de incidentes.
           </motion.p>
         </div>
       </section>
@@ -134,24 +137,24 @@ export default function Login() {
               {/* Login Method Selection */}
               <Card className="p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Choose Login Method
+                  Elige un Método de Ingreso
                 </h2>
 
                 <Button
-                  onClick={() => setLoginMethod('password')}
+                  onClick={() => setLoginMethod("password")}
                   className="w-full mb-3 bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2"
                 >
                   <Lock className="h-4 w-4" />
-                  Log in with Password
+                  Ingresar con Contraseña
                 </Button>
 
                 <Button
-                  onClick={() => setLoginMethod('email-link')}
+                  onClick={() => setLoginMethod("email-link")}
                   variant="outline"
                   className="w-full mb-3 border-gray-300 flex items-center justify-center gap-2"
                 >
                   <Mail className="h-4 w-4" />
-                  Continue with Email Link
+                  Continuar con Enlace de Correo
                 </Button>
 
                 <Button
@@ -161,14 +164,17 @@ export default function Login() {
                   disabled={isLoading}
                 >
                   <UserCheck className="h-4 w-4" />
-                  Continue as Guest
+                  Continuar como Invitado
                 </Button>
               </Card>
 
               <p className="text-center text-sm text-gray-600">
-                Don't have an account?{' '}
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-semibold">
-                  Contact administrator
+                ¿No tienes una cuenta?{" "}
+                <a
+                  href="#"
+                  className="text-blue-600 hover:text-blue-700 font-semibold"
+                >
+                  Contacta al administrador
                 </a>
               </p>
             </motion.div>
@@ -186,19 +192,22 @@ export default function Login() {
                   onClick={() => setLoginMethod(null)}
                   className="mb-6 border-gray-300 w-full"
                 >
-                  ← Back
+                  ← Atrás
                 </Button>
 
                 {/* Password Login */}
-                {loginMethod === 'password' && (
+                {loginMethod === "password" && (
                   <form onSubmit={handlePasswordLogin} className="space-y-6">
                     <h2 className="text-2xl font-bold text-gray-900">
-                      Log in with Password
+                      Ingresar con Contraseña
                     </h2>
 
                     <div>
-                      <Label htmlFor="email" className="font-medium text-gray-900">
-                        Email Address *
+                      <Label
+                        htmlFor="email"
+                        className="font-medium text-gray-900"
+                      >
+                        Correo Electrónico *
                       </Label>
                       <Input
                         id="email"
@@ -212,8 +221,11 @@ export default function Login() {
                     </div>
 
                     <div>
-                      <Label htmlFor="password" className="font-medium text-gray-900">
-                        Password *
+                      <Label
+                        htmlFor="password"
+                        className="font-medium text-gray-900"
+                      >
+                        Contraseña *
                       </Label>
                       <Input
                         id="password"
@@ -230,7 +242,7 @@ export default function Login() {
                       href="#"
                       className="text-sm text-blue-600 hover:text-blue-700 font-medium"
                     >
-                      Forgot password?
+                      ¿Olvidaste la contraseña?
                     </a>
 
                     <Button
@@ -238,25 +250,29 @@ export default function Login() {
                       disabled={isLoading || !email || !password}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                     >
-                      {isLoading ? 'Logging in...' : 'Log In'}
+                      {isLoading ? "Ingresando..." : "Ingresar"}
                     </Button>
                   </form>
                 )}
 
                 {/* Email Link Login */}
-                {loginMethod === 'email-link' && (
+                {loginMethod === "email-link" && (
                   <form onSubmit={handleEmailLink} className="space-y-6">
                     <h2 className="text-2xl font-bold text-gray-900">
-                      Email Link Sign In
+                      Inicio de Sesión con Enlace
                     </h2>
 
                     <p className="text-gray-600 text-sm">
-                      Enter your email and we'll send you a secure login link.
+                      Ingresa tu correo electrónico y te enviaremos un enlace de
+                      acceso seguro.
                     </p>
 
                     <div>
-                      <Label htmlFor="email" className="font-medium text-gray-900">
-                        Email Address *
+                      <Label
+                        htmlFor="email"
+                        className="font-medium text-gray-900"
+                      >
+                        Correo Electrónico *
                       </Label>
                       <Input
                         id="email"
@@ -274,7 +290,9 @@ export default function Login() {
                       disabled={isLoading || !email}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                     >
-                      {isLoading ? 'Sending link...' : 'Send Login Link'}
+                      {isLoading
+                        ? "Enviando enlace..."
+                        : "Enviar Enlace de Acceso"}
                     </Button>
                   </form>
                 )}

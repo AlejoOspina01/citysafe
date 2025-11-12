@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Building2 } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Building2 } from "lucide-react";
 
 /**
  * Partners Component
@@ -10,18 +10,18 @@ import { Building2 } from 'lucide-react';
  */
 const partners = [
   {
-    id: 'partner-1',
-    name: 'City Police Department',
+    id: "partner-1",
+    name: "Departamento de Policía de la Ciudad",
     icon: Building2,
   },
   {
-    id: 'partner-2',
-    name: 'Community Health Services',
+    id: "partner-2",
+    name: "Servicios de Salud Comunitaria",
     icon: Building2,
   },
   {
-    id: 'partner-3',
-    name: 'Emergency Management',
+    id: "partner-3",
+    name: "Gestión de Emergencias",
     icon: Building2,
   },
 ];
@@ -53,10 +53,11 @@ export function Partners() {
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            Our Partners
+            Nuestros Aliados
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Collaborating with trusted organizations to enhance community safety
+            Colaborando con organizaciones de confianza para mejorar la
+            seguridad comunitaria
           </p>
         </div>
 

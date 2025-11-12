@@ -1,24 +1,33 @@
-'use client';
+"use client";
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { motion } from 'framer-motion';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import { motion } from "framer-motion";
 
 /**
  * City Safety Index Component
  * Displays trending incident data using a line chart
  */
 const chartData = [
-  { month: 'Jan', incidents: 24, resolved: 20 },
-  { month: 'Feb', incidents: 18, resolved: 15 },
-  { month: 'Mar', incidents: 32, resolved: 28 },
-  { month: 'Apr', incidents: 28, resolved: 25 },
-  { month: 'May', incidents: 35, resolved: 30 },
-  { month: 'Jun', incidents: 22, resolved: 20 },
-  { month: 'Jul', incidents: 19, resolved: 18 },
-  { month: 'Aug', incidents: 25, resolved: 23 },
-  { month: 'Sep', incidents: 29, resolved: 26 },
-  { month: 'Oct', incidents: 31, resolved: 28 },
-  { month: 'Nov', incidents: 15, resolved: 14 },
+  { month: "Jan", incidents: 24, resolved: 20 },
+  { month: "Feb", incidents: 18, resolved: 15 },
+  { month: "Mar", incidents: 32, resolved: 28 },
+  { month: "Apr", incidents: 28, resolved: 25 },
+  { month: "May", incidents: 35, resolved: 30 },
+  { month: "Jun", incidents: 22, resolved: 20 },
+  { month: "Jul", incidents: 19, resolved: 18 },
+  { month: "Aug", incidents: 25, resolved: 23 },
+  { month: "Sep", incidents: 29, resolved: 26 },
+  { month: "Oct", incidents: 31, resolved: 28 },
+  { month: "Nov", incidents: 15, resolved: 14 },
 ];
 
 export function CitySafetyIndex() {
@@ -34,10 +43,11 @@ export function CitySafetyIndex() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            City Safety Index
+            Índice de Seguridad Ciudadana
           </h2>
           <p className="mt-2 text-lg text-gray-600">
-            Track incident trends and community safety improvements over time
+            Rastrea las tendencias de incidentes y mejoras en la seguridad
+            comunitaria a lo largo del tiempo
           </p>
         </motion.div>
 
@@ -58,40 +68,34 @@ export function CitySafetyIndex() {
               <XAxis
                 dataKey="month"
                 stroke="#6b7280"
-                style={{ fontSize: '12px' }}
+                style={{ fontSize: "12px" }}
               />
-              <YAxis
-                stroke="#6b7280"
-                style={{ fontSize: '12px' }}
-              />
+              <YAxis stroke="#6b7280" style={{ fontSize: "12px" }} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#ffffff',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '8px',
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
                 }}
               />
-              <Legend
-                wrapperStyle={{ paddingTop: '20px' }}
-                iconType="line"
-              />
+              <Legend wrapperStyle={{ paddingTop: "20px" }} iconType="line" />
               <Line
                 type="monotone"
                 dataKey="incidents"
                 stroke="#2563eb"
                 strokeWidth={2}
-                dot={{ fill: '#2563eb', r: 4 }}
+                dot={{ fill: "#2563eb", r: 4 }}
                 activeDot={{ r: 6 }}
-                name="Total Incidents"
+                name="Total de Incidentes"
               />
               <Line
                 type="monotone"
                 dataKey="resolved"
                 stroke="#10b981"
                 strokeWidth={2}
-                dot={{ fill: '#10b981', r: 4 }}
+                dot={{ fill: "#10b981", r: 4 }}
                 activeDot={{ r: 6 }}
-                name="Resolved"
+                name="Resueltos"
               />
             </LineChart>
           </ResponsiveContainer>
@@ -106,7 +110,9 @@ export function CitySafetyIndex() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm font-medium text-gray-600">Average Resolution Rate</p>
+            <p className="text-sm font-medium text-gray-600">
+              Tasa Promedio de Resolución
+            </p>
             <p className="mt-2 text-3xl font-bold text-green-600">89%</p>
           </motion.div>
 
@@ -117,7 +123,9 @@ export function CitySafetyIndex() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm font-medium text-gray-600">Community Engagement</p>
+            <p className="text-sm font-medium text-gray-600">
+              Community Engagement
+            </p>
             <p className="mt-2 text-3xl font-bold text-blue-600">2,450+</p>
             <p className="mt-1 text-xs text-gray-500">Active reporters</p>
           </motion.div>
@@ -129,7 +137,9 @@ export function CitySafetyIndex() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm font-medium text-gray-600">Average Response Time</p>
+            <p className="text-sm font-medium text-gray-600">
+              Average Response Time
+            </p>
             <p className="mt-2 text-3xl font-bold text-orange-600">2.4h</p>
           </motion.div>
         </div>

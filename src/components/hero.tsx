@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 /**
  * Hero Component
@@ -27,11 +27,12 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-            Make Your Community Safer
+            Haz tu Comunidad Más Segura
           </h1>
           <p className="mt-6 text-lg text-blue-100 md:text-xl max-w-2xl mx-auto">
-            Report incidents, stay informed, and connect with your neighbors.
-            CitySafe empowers communities through transparent incident reporting.
+            Reporta incidentes, mantente informado y conecta con tus vecinos.
+            CitySafe empodera a las comunidades mediante reportes de incidentes
+            transparentes.
           </p>
 
           {/* CTA Buttons */}
@@ -41,7 +42,7 @@ export function Hero() {
                 size="lg"
                 className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 font-semibold"
               >
-                Report an Incident
+                Reportar un Incidente
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -49,9 +50,9 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white text-white hover:bg-blue-700"
+                className="w-full sm:w-auto border-white  text-blue-600 hover:bg-gray-100 "
               >
-                Learn More
+                Saber Más
               </Button>
             </Link>
           </div>
@@ -66,15 +67,15 @@ export function Hero() {
         >
           <div className="rounded-lg bg-white/10 backdrop-blur p-6 border border-white/20">
             <p className="text-3xl font-bold text-white">500+</p>
-            <p className="mt-2 text-blue-100">Incidents Reported</p>
+            <p className="mt-2 text-blue-100">Incidentes Reportados</p>
           </div>
           <div className="rounded-lg bg-white/10 backdrop-blur p-6 border border-white/20">
             <p className="text-3xl font-bold text-white">2,450+</p>
-            <p className="mt-2 text-blue-100">Active Members</p>
+            <p className="mt-2 text-blue-100">Miembros Activos</p>
           </div>
           <div className="rounded-lg bg-white/10 backdrop-blur p-6 border border-white/20">
             <p className="text-3xl font-bold text-white">89%</p>
-            <p className="mt-2 text-blue-100">Resolution Rate</p>
+            <p className="mt-2 text-blue-100">Tasa de Resolución</p>
           </div>
         </motion.div>
       </div>

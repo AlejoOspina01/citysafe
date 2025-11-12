@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { AlertCircle, Home } from 'lucide-react';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { AlertCircle, Home } from "lucide-react";
 
 /**
  * Navbar Component
@@ -26,13 +26,13 @@ export function Navbar() {
               href="/"
               className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Home
+              Inicio
             </Link>
             <Link
               href="/contact"
               className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Contact
+              Contacto
             </Link>
           </div>
 
@@ -40,12 +40,12 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link href="/report">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Report Incident
+                Reportar Incidente
               </Button>
             </Link>
             <Link href="/login">
               <Button variant="outline" className="border-gray-300">
-                Login
+                Iniciar Sesión
               </Button>
             </Link>
           </div>

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import Link from "next/link";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 /**
  * Footer Component
@@ -17,45 +17,50 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-gray-900">CitySafe</h3>
             <p className="mt-2 text-sm text-gray-600">
-              Empowering communities through transparent and efficient incident reporting.
-              Building safer neighborhoods together.
+              Empoderando comunidades a través de reportes de incidentes
+              transparentes y eficientes. Construyendo barrios más seguros
+              juntos.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase">
+              Enlaces Rápidos
+            </h4>
             <nav className="mt-4 space-y-2">
               <Link
                 href="/"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Home
+                Inicio
               </Link>
               <Link
                 href="/contact"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Contact
+                Contacto
               </Link>
               <Link
                 href="/report"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Report Incident
+                Reportar Incidente
               </Link>
               <Link
                 href="/login"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
-                Admin Login
+                Ingreso Administrador
               </Link>
             </nav>
           </div>
 
           {/* Contact Information */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase">Contact</h4>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase">
+              Contacto
+            </h4>
             <div className="mt-4 space-y-3">
               <a
                 href="tel:+1234567890"
@@ -73,7 +78,11 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-2 text-sm text-gray-600">
                 <MapPin className="h-4 w-4 mt-0.5" />
-                <span>123 Safety Street<br />City, State 12345</span>
+                <span>
+                  123 Safety Street
+                  <br />
+                  City, State 12345
+                </span>
               </div>
             </div>
           </div>
@@ -85,20 +94,20 @@ export function Footer() {
         {/* Copyright */}
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-gray-600">
-            © 2025 CitySafe. All rights reserved.
+            © 2025 CitySafe. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
             <Link
               href="#"
               className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Privacy Policy
+              Política de Privacidad
             </Link>
             <Link
               href="#"
               className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Terms of Service
+              Términos de Servicio
             </Link>
           </div>
         </div>

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card } from '@/components/ui/card';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 /**
  * Contact Page (/contact)
@@ -16,9 +16,9 @@ import { Mail, Phone, MapPin } from 'lucide-react';
  */
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -35,9 +35,9 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Connect to backend API
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
@@ -52,7 +52,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Contact Us
+            Contáctanos
           </motion.h1>
           <motion.p
             className="mt-4 text-lg text-blue-100"
@@ -60,7 +60,7 @@ export default function Contact() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Have a question or feedback? We'd love to hear from you.
+            ¿Tienes una pregunta o comentario? Nos encantaría escucharte.
           </motion.p>
         </div>
       </section>
@@ -81,9 +81,11 @@ export default function Contact() {
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
+                    <h3 className="font-semibold text-gray-900">Teléfono</h3>
                     <p className="mt-2 text-gray-600">+1 (234) 567-890</p>
-                    <p className="text-sm text-gray-500 mt-1">Mon-Fri, 9am-6pm EST</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Lun-Vie, 9am-6pm EST
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -92,9 +94,13 @@ export default function Contact() {
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Email</h3>
+                    <h3 className="font-semibold text-gray-900">
+                      Correo Electrónico
+                    </h3>
                     <p className="mt-2 text-gray-600">support@citysafe.com</p>
-                    <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Responderemos en 24 horas
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -103,9 +109,10 @@ export default function Contact() {
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Address</h3>
+                    <h3 className="font-semibold text-gray-900">Dirección</h3>
                     <p className="mt-2 text-gray-600">
-                      123 Safety Street<br />
+                      123 Safety Street
+                      <br />
                       City, State 12345
                     </p>
                   </div>
@@ -145,24 +152,27 @@ export default function Contact() {
                       </svg>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900">
-                      Message Sent!
+                      ¡Mensaje Enviado!
                     </h3>
                     <p className="mt-2 text-gray-600 text-center">
-                      Thank you for contacting us. We'll get back to you soon.
+                      Gracias por contactarnos. Te responderemos pronto.
                     </p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <Label htmlFor="name" className="font-medium text-gray-900">
-                        Name *
+                      <Label
+                        htmlFor="name"
+                        className="font-medium text-gray-900"
+                      >
+                        Nombre *
                       </Label>
                       <Input
                         id="name"
                         name="name"
                         type="text"
                         required
-                        placeholder="Your name"
+                        placeholder="Tu nombre"
                         value={formData.name}
                         onChange={handleInputChange}
                         className="mt-2"
@@ -170,15 +180,18 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="email" className="font-medium text-gray-900">
-                        Email *
+                      <Label
+                        htmlFor="email"
+                        className="font-medium text-gray-900"
+                      >
+                        Correo Electrónico *
                       </Label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         required
-                        placeholder="your@email.com"
+                        placeholder="tu@correo.com"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="mt-2"
@@ -186,14 +199,17 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <Label htmlFor="message" className="font-medium text-gray-900">
-                        Message *
+                      <Label
+                        htmlFor="message"
+                        className="font-medium text-gray-900"
+                      >
+                        Mensaje *
                       </Label>
                       <Textarea
                         id="message"
                         name="message"
                         required
-                        placeholder="Your message here..."
+                        placeholder="Tu mensaje aquí..."
                         rows={6}
                         value={formData.message}
                         onChange={handleInputChange}
@@ -206,7 +222,7 @@ export default function Contact() {
                       size="lg"
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                     >
-                      Send Message
+                      Enviar Mensaje
                     </Button>
                   </form>
                 )}

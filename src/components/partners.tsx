@@ -4,9 +4,54 @@ import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 
 /**
- * Partners Component
- * Displays partner organizations and sponsors
- * Uses placeholder logos with company names
+ * ============================================================================
+ * PARTNERS COMPONENT
+ * ============================================================================
+ *
+ * DESCRIPCIÓN GENERAL:
+ * - Muestra organizaciones aliadas que colaboran con CitySafe
+ * - Grid responsivo con tarjetas de partners
+ * - Animaciones escalonadas al hacer scroll
+ * - Útil para mostrar credibilidad y confianza
+ *
+ * UBICACIÓN: src/components/partners.tsx
+ *
+ * CARACTERÍSTICAS:
+ * 1. Sección con título y descripción
+ * 2. Grid de 3 partners (responsive)
+ * 3. Cada tarjeta contiene:
+ *    - Ícono Building2 (oficina/organización)
+ *    - Nombre del partner
+ * 4. Animaciones de entrada escalonadas
+ * 5. Efecto hover en las tarjetas
+ * 6. Fondo gris claro
+ *
+ * PARTNERS ACTUALES:
+ * 1. Departamento de Policía de la Ciudad
+ * 2. Servicios de Salud Comunitaria
+ * 3. Gestión de Emergencias
+ *
+ * NOTA:
+ * En producción, estos deberían tener logos reales en lugar del ícono genérico
+ * Se pueden agregar imágenes en el objeto partner si es necesario
+ *
+ * ============================================================================
+ */
+
+/**
+ * Array de organizaciones aliadas
+ *
+ * ESTRUCTURA:
+ * - id: string - Identificador único
+ * - name: string - Nombre de la organización
+ * - icon: React.ReactNode - Ícono visual (Building2)
+ *
+ * EXTENSIÓN:
+ * Se pueden agregar más partners simplemente agregando objetos al array
+ * También se pueden agregar campos adicionales como:
+ * - logo: URL de la imagen del logo
+ * - description: Descripción corta
+ * - website: URL del sitio web
  */
 const partners = [
   {

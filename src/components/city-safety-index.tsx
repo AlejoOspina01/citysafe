@@ -13,8 +13,53 @@ import {
 import { motion } from "framer-motion";
 
 /**
- * City Safety Index Component
- * Displays trending incident data using a line chart
+ * ============================================================================
+ * CITY SAFETY INDEX COMPONENT
+ * ============================================================================
+ *
+ * DESCRIPCIÓN GENERAL:
+ * - Muestra tendencias de incidentes mediante gráfico de líneas
+ * - Utiliza librería Recharts para visualización de datos
+ * - Presenta estadísticas clave sobre seguridad comunitaria
+ * - Animaciones de entrada al hacer scroll
+ *
+ * UBICACIÓN: src/components/city-safety-index.tsx
+ *
+ * CARACTERÍSTICAS:
+ * 1. Gráfico interactivo con datos mensuales
+ * 2. Dos líneas: Total de Incidentes y Resueltos
+ * 3. Estadísticas adicionales (Tasa resolución, Engagement, Respuesta)
+ * 4. Fondo con gradiente (azul claro a blanco)
+ * 5. Responsive: Se adapta a todos los tamaños de pantalla
+ * 6. Hover interactivo: Tooltip al pasar el mouse
+ *
+ * SECCIONES:
+ * 1. Cabecera con título y descripción
+ * 2. Gráfico de líneas Recharts
+ * 3. Grid de estadísticas clave (3 métricas)
+ *
+ * DATOS:
+ * chartData: Array de objetos con datos mensuales
+ * - month: Abreviatura del mes (Jan, Feb, etc.)
+ * - incidents: Número total de incidentes
+ * - resolved: Número de incidentes resueltos
+ *
+ * ============================================================================
+ */
+
+/**
+ * Datos del gráfico - Tendencia mensual de incidentes
+ *
+ * ESTRUCTURA:
+ * Cada objeto contiene:
+ * - month: string - Abreviatura del mes
+ * - incidents: number - Total de incidentes reportados
+ * - resolved: number - Incidentes resueltos
+ *
+ * FUENTE: Estos son datos simulados para demostración
+ * En producción, vendrían de una API backend
+ *
+ * RANGO: 11 meses de datos (Enero a Noviembre)
  */
 const chartData = [
   { month: "Jan", incidents: 24, resolved: 20 },

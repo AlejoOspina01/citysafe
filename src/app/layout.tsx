@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CitySafe - Community Security Reporting Platform",
-  description: "Empower your community through transparent incident reporting and real-time alerts.",
+  description:
+    "Empower your community through transparent incident reporting and real-time alerts.",
 };
 
 /**
@@ -31,11 +32,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+      <body
+        className={`${geist.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+      >
         <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>

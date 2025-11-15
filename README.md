@@ -176,16 +176,6 @@ npm run lint --fix
 - Componentes seguros con TypeScript
 - Protección CSRF mediante Next.js
 
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas. Para contribuir:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
 ## 📋 Roadmap
 
 - [ ] Integración con base de datos real
@@ -200,11 +190,11 @@ Las contribuciones son bienvenidas. Para contribuir:
 
 Este proyecto está licenciado bajo la Licencia MIT - Ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-**Alejo Ospina**
-
-- GitHub: [@AlejoOspina01](https://github.com/AlejoOspina01)
+**Alejandro Ospina**
+**Katherine Sanchez**
+**Gustavo Quintero**
 
 ## 📞 Contacto y Soporte
 

@@ -192,9 +192,9 @@ Este proyecto está licenciado bajo la Licencia MIT - Ver el archivo [LICENSE](L
 
 ## 👨‍💻 Autores
 
-**Alejandro Ospina**
-**Katherine Sanchez**
-**Gustavo Quintero**
+- **Alejandro Ospina**
+- **Katherine Sanchez**
+- **Gustavo Quintero**
 
 ## 📞 Contacto y Soporte
 

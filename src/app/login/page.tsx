@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Mail, Lock, UserCheck } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/hooks/useAuth";
 
 /**
  * ============================================================================
@@ -80,6 +81,9 @@ import Link from "next/link";
  * 4. Final: isSuccess = true (mostrar mensaje de éxito)
  */
 export default function Login() {
+  // ===== HOOKS =====
+  const { login } = useAuth();
+
   // ===== ESTADOS =====
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -99,7 +103,8 @@ export default function Login() {
    * 2. Activar estado de carga
    * 3. Enviar credenciales al backend (TODO)
    * 4. Simular delay de red (1000ms)
-   * 5. Mostrar pantalla de éxito
+   * 5. Llamar a login() para establecer la sesión
+   * 6. Mostrar pantalla de éxito
    *
    * VALIDACIÓN:
    * - Email y contraseña no pueden estar vacíos
@@ -116,6 +121,13 @@ export default function Login() {
     // TODO: Connect to backend authentication API
     console.log("Password login:", { email, password });
     setTimeout(() => {
+      // Crear usuario mock y establecer sesión
+      login({
+        id: Math.random().toString(),
+        firstName: email.split("@")[0],
+        lastName: "Admin",
+        email: email,
+      });
       setIsLoading(false);
       setIsSuccess(true);
     }, 1000);
@@ -129,7 +141,8 @@ export default function Login() {
    * 2. Activar estado de carga
    * 3. Enviar email al backend (TODO)
    * 4. Backend envía enlace de acceso al email
-   * 5. Mostrar pantalla de éxito
+   * 5. Llamar a login() para establecer la sesión
+   * 6. Mostrar pantalla de éxito
    *
    * FLUJO:
    * - Usuario recibe email con link mágico
@@ -146,6 +159,13 @@ export default function Login() {
     // TODO: Connect to backend API for email link
     console.log("Email link login:", { email });
     setTimeout(() => {
+      // Crear usuario mock y establecer sesión
+      login({
+        id: Math.random().toString(),
+        firstName: email.split("@")[0],
+        lastName: "Admin",
+        email: email,
+      });
       setIsLoading(false);
       setIsSuccess(true);
     }, 1000);
@@ -158,6 +178,7 @@ export default function Login() {
    * - No requiere credenciales
    * - Crea sesión anónima/limitada
    * - Acceso de solo lectura al dashboard
+   * - Llamar a login() para establecer la sesión de invitado
    *
    * LIMITACIONES:
    * - No puede crear/editar reportes
@@ -174,6 +195,13 @@ export default function Login() {
     // TODO: Create guest session
     console.log("Guest access");
     setTimeout(() => {
+      // Crear usuario invitado mock y establecer sesión
+      login({
+        id: "guest_" + Math.random().toString(),
+        firstName: "Invitado",
+        lastName: "",
+        email: "guest@citysafe.com",
+      });
       setIsLoading(false);
       setIsSuccess(true);
     }, 1000);

@@ -1,18 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, Home } from "lucide-react";
+import { AlertCircle, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 /**
  * ============================================================================
- * NAVBAR COMPONENT
+ * NAVBAR COMPONENT - DINÁMICO CON AUTENTICACIÓN
  * ============================================================================
  *
  * DESCRIPCIÓN GENERAL:
  * - Barra de navegación principal fija en la parte superior de la aplicación
+ * - Cambia dinámicamente según estado de autenticación del usuario
  * - Proporciona navegación principal a todas las secciones de CitySafe
- * - Incluye branding (logo y nombre), menús de navegación y botones de acción
  * - Diseño responsivo con adaptación a dispositivos móviles
  *
  * UBICACIÓN: src/components/navbar.tsx
@@ -20,29 +22,50 @@ import { AlertCircle, Home } from "lucide-react";
  * CARACTERÍSTICAS PRINCIPALES:
  * 1. Posicionamiento sticky: Se adhiere al scroll vertical
  * 2. Branding con logo de alerta (AlertCircle) y nombre "CitySafe"
- * 3. Menú de navegación en desktop (Inicio, Contacto)
- * 4. Botones de acción: "Reportar Incidente" y "Iniciar Sesión"
+ * 3. Navegación DINÁMICA basada en autenticación:
+ *    - NO autenticado: Inicio, Contacto, Reportar, Registrarse, Login
+ *    - Autenticado: Reportar, Mi Perfil, Cerrar Sesión
+ * 4. Menú de navegación en desktop (centro, visible en md+)
  * 5. Responsive: Oculta menú desktop en móviles, muestra botones en ambos
  * 6. Z-index alto (z-50) para aparecer encima de otros elementos
  *
  * ESTRUCTURA:
  * - Logo/Branding (izquierda)
  * - Navegación Desktop (centro, visible en md+)
- * - Botones de acción (derecha)
+ * - Botones de acción dinámicos (derecha)
  * - Sombra sutil para separación visual
+ *
+ * ESTADOS DE NAVEGACIÓN:
+ *
+ * USUARIO NO AUTENTICADO:
+ *   Navegación: Inicio | Contacto
+ *   Botones: Reportar Incidente | Registrarse | Iniciar Sesión
+ *
+ * USUARIO AUTENTICADO:
+ *   Navegación: (no muestra links de navegación)
+ *   Botones: Reportar Incidente | Mi Perfil | Cerrar Sesión
  *
  * DEPENDENCIAS:
  * - next/link: Enrutamiento del lado del cliente
  * - ui/button: Componente de botón personalizado
- * - lucide-react: Íconos (AlertCircle, Home)
+ * - lucide-react: Íconos (AlertCircle, LogOut)
+ * - hooks/useAuth: Hook de autenticación personalizado
  *
  * PROPS: Ninguno
  *
- * ESTADOS: Ninguno (componente sin estado)
+ * HOOKS: useAuth (maneja estado de autenticación)
  *
  * ============================================================================
  */
 export function Navbar() {
+  const { isAuthenticated, user, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white shadow-sm">
       {/* Contenedor principal con max-width y padding responsivo */}
@@ -60,49 +83,82 @@ export function Navbar() {
             <span className="text-xl font-bold text-gray-900">CitySafe</span>
           </Link>
 
-          {/* ===== SECCIÓN 2: NAVEGACIÓN DESKTOP ===== */}
+          {/* ===== SECCIÓN 2: NAVEGACIÓN DESKTOP (Solo si NO está autenticado) ===== */}
           {/* 
-          Visible solo en pantallas medianas (md) o mayores
+          - Visible solo si el usuario NO está autenticado
+          - En pantallas medianas (md) o mayores
           - Flex: 1 para ocupar espacio disponible
-          - Hidden en móviles: "hidden" + "md:flex"
           - Justify center para posicionar en el centro
           */}
-          <div className="hidden flex-1 items-center justify-center md:flex">
-            {/* Link Inicio */}
-            <Link
-              href="/"
-              className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Inicio
-            </Link>
-            {/* Link Contacto */}
-            <Link
-              href="/contact"
-              className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Contacto
-            </Link>
-          </div>
+          {!isAuthenticated && (
+            <div className="hidden flex-1 items-center justify-center md:flex">
+              {/* Link Inicio */}
+              <Link
+                href="/"
+                className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Inicio
+              </Link>
+              {/* Link Contacto */}
+              <Link
+                href="/contact"
+                className="mx-6 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Contacto
+              </Link>
+            </div>
+          )}
 
-          {/* ===== SECCIÓN 3: BOTONES DE ACCIÓN ===== */}
+          {/* ===== SECCIÓN 3: BOTONES DINÁMICOS (Varía según autenticación) ===== */}
           {/* 
-          Botones principales de la aplicación
-          - Visible en desktop (md+)
-          - Orden: Reportar Incidente (primario) → Iniciar Sesión (outline)
+          Los botones cambian según si el usuario está autenticado o no
           */}
           <div className="flex items-center gap-3">
-            {/* Botón: Reportar Incidente */}
+            {/* Botón: Reportar Incidente (SIEMPRE visible) */}
             <Link href="/report">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 Reportar Incidente
               </Button>
             </Link>
-            {/* Botón: Iniciar Sesión */}
-            <Link href="/login">
-              <Button variant="outline" className="border-gray-300">
-                Iniciar Sesión
-              </Button>
-            </Link>
+
+            {/* ===== SI NO ESTÁ AUTENTICADO ===== */}
+            {!isAuthenticated && (
+              <>
+                {/* Botón: Registrarse */}
+                <Link href="/register">
+                  <Button variant="outline" className="border-gray-300">
+                    Registrarse
+                  </Button>
+                </Link>
+                {/* Botón: Iniciar Sesión */}
+                <Link href="/login">
+                  <Button variant="outline" className="border-gray-300">
+                    Iniciar Sesión
+                  </Button>
+                </Link>
+              </>
+            )}
+
+            {/* ===== SI ESTÁ AUTENTICADO ===== */}
+            {isAuthenticated && (
+              <>
+                {/* Botón: Mi Perfil */}
+                <Link href="/profile">
+                  <Button variant="outline" className="border-gray-300">
+                    Mi Perfil
+                  </Button>
+                </Link>
+                {/* Botón: Cerrar Sesión */}
+                <Button
+                  variant="outline"
+                  className="border-red-300 text-red-600 hover:bg-red-50"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Cerrar Sesión
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
